@@ -36,6 +36,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
   sqflite: ^2.4.0
+  video_player: ^2.4.6
 
 dev_dependencies:
   flutter_test:
@@ -67,6 +68,7 @@ flutter:
       - assets/images/teks_parkvision.png
       - assets/images/mobil1.jpg
       - assets/images/mobil2.jpg
+      - assets/videos/dataset_parkir.mp4
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

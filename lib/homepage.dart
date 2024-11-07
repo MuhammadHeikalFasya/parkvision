@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:parkvision/login.dart';
 import 'package:parkvision/navbar.dart';
+import 'package:video_player/video_player.dart';
 
 class ParkVisionApp extends StatelessWidget {
   const ParkVisionApp({super.key});
@@ -80,6 +81,54 @@ class LandingPage extends StatelessWidget {
   }
 }
 
+class VideoWidget extends StatefulWidget {
+  const VideoWidget({Key? key}) : super(key: key);
+
+  @override
+  _VideoWidgetState createState() => _VideoWidgetState();
+}
+
+class _VideoWidgetState extends State<VideoWidget> {
+  late VideoPlayerController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    // Inisialisasi VideoPlayerController dengan path video
+    _controller = VideoPlayerController.asset(
+      'assets/videos/dataset_parkir.mp4', // Pastikan pathnya benar
+    );
+  }
+
+  @override
+  void dispose() {
+    // Memberhentikan controller ketika widget dihapus
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder(
+      future: _controller.initialize(),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.done) {
+          _controller.play();
+          return Center(
+            child: AspectRatio(
+              aspectRatio: _controller.value.aspectRatio,
+              child: VideoPlayer(_controller),
+            ),
+          );
+        } else {
+          return const Center(child: CircularProgressIndicator());
+        }
+      },
+    );
+  }
+}
+
+
 class DesktopLayout extends StatelessWidget {
   const DesktopLayout({super.key});
 
@@ -95,16 +144,9 @@ class DesktopLayout extends StatelessWidget {
             children: [
               Expanded(
                 flex: 2,
-                child: Container(
+                child: SizedBox(
                   height: 300,
-                  decoration: BoxDecoration(
-                    color: Colors.grey[300],
-                    image: const DecorationImage(
-                      image: AssetImage(
-                          './assets/images/parkir.jpg'), // Path gambar
-                      fit: BoxFit.cover, // Sesuaikan tampilan gambar
-                    ),
-                  ),
+                  child: const VideoWidget(),
                 ),
               ),
               const SizedBox(width: 16),
@@ -132,25 +174,21 @@ class MobileLayout extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          // Ganti bagian gambar dengan VideoWidget
           Container(
-            height: 200,
-            decoration: BoxDecoration(
-              color: Colors.grey[300],
-              image: const DecorationImage(
-                image: AssetImage('./assets/images/parkir.jpg'), // Path gambar
-                fit: BoxFit.cover, // Sesuaikan tampilan gambar
-              ),
-            ),
+            height: 200, // Sesuaikan tinggi video
+            child: const VideoWidget(), // Menampilkan video sebagai pengganti gambar
           ),
           const SizedBox(height: 16),
           const StatusSlot(),
           const SizedBox(height: 16),
-          const ParkingSlots(),
+          const ParkingSlots(), // Menampilkan slot parkir
         ],
       ),
     );
   }
 }
+
 
 class StatusSlot extends StatelessWidget {
   const StatusSlot({super.key});
