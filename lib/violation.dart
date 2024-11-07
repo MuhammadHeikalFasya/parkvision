@@ -81,13 +81,13 @@ class ViolationItem extends StatelessWidget {
           children: [
             Row(
               children: [
-                Icon(Icons.warning, size: 30, color: Colors.red), // Ikon peringatan
+                const Icon(Icons.warning, size: 30, color: Colors.red), // Ikon peringatan
                 const SizedBox(width: 10),
                 // Menambahkan teks "Pelanggaran Parkir"
-                Expanded(
+                const Expanded(
                   child: Text(
                     "Pelanggaran Parkir", // Judul Pelanggaran
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
                       color: Colors.black,

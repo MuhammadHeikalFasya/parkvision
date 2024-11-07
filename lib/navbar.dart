@@ -4,6 +4,8 @@ import 'package:parkvision/homepage.dart';
 import 'package:parkvision/violation.dart';
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -120,7 +122,7 @@ class _NavigationRailPageState extends State<NavigationRailPage>
               selectedIndex: _selectedIndex,
               onDestinationSelected: _onItemTapped,
               extended: isLargeScreen,
-              backgroundColor: Color(0xFFff3c3c),
+              backgroundColor: const Color(0xFFff3c3c),
               destinations: _navBarItems.map((item) {
                 final int itemIndex = _navBarItems.indexOf(item);
                 final bool isSelected = _selectedIndex == itemIndex;
@@ -133,7 +135,7 @@ class _NavigationRailPageState extends State<NavigationRailPage>
                     child: item.icon,
                   ),
                   selectedIcon: IconTheme(
-                    data: IconThemeData(
+                    data: const IconThemeData(
                       color: Colors.black,
                     ),
                     child: item.icon,

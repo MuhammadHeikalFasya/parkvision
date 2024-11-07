@@ -3,7 +3,7 @@
 
   // Kelas yang mewakili layar login responsif
   class ResponsiveLoginScreen extends StatelessWidget {
-    const ResponsiveLoginScreen({Key? key}) : super(key: key);
+    const ResponsiveLoginScreen({super.key});
 
     @override
     Widget build(BuildContext context) {
@@ -26,9 +26,10 @@
 
   // Desktop Login Screen
   class DesktopLoginScreen extends StatefulWidget {
-    const DesktopLoginScreen({Key? key}) : super(key: key);
+    const DesktopLoginScreen({super.key});
 
     @override
+    // ignore: library_private_types_in_public_api
     _DesktopLoginScreenState createState() => _DesktopLoginScreenState();
   }
 
@@ -96,13 +97,17 @@
               ElevatedButton(
                 onPressed: () {},
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromARGB(255, 221, 218, 218),
+                  backgroundColor: Colors.red,
                   minimumSize: const Size(double.infinity, 50),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15),
                   ),
                 ),
-                child: const Text('Log in'),
+                child: const Text(
+                  'Log in',
+                  style: TextStyle(
+                  color: Colors.black),
+                  ),
               ),
               const SizedBox(height: 20),
               GestureDetector(
@@ -126,9 +131,10 @@
 
   // Mobile Login Screen
   class MobileLoginScreen extends StatefulWidget {
-    const MobileLoginScreen({Key? key}) : super(key: key);
+    const MobileLoginScreen({super.key});
 
     @override
+    // ignore: library_private_types_in_public_api
     _MobileLoginScreenState createState() => _MobileLoginScreenState();
   }
 
@@ -187,13 +193,16 @@
             ElevatedButton(
               onPressed: () {},
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color.fromARGB(255, 221, 218, 218),
+                backgroundColor: Colors.red,
                 minimumSize: const Size(double.infinity, 50),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(15),
                 ),
               ),
-              child: const Text('Log in'),
+              child: const Text(
+                'Log in',
+                style: TextStyle(
+                  color: Colors.black),),
             ),
             const SizedBox(height: 20),
             GestureDetector(

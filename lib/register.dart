@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ParkVisionRegis extends StatelessWidget {
-  const ParkVisionRegis({Key? key}) : super(key: key);
+  const ParkVisionRegis({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class ParkVisionRegis extends StatelessWidget {
 }
 
 class ResponsiveLoginScreen extends StatelessWidget {
-  const ResponsiveLoginScreen({Key? key}) : super(key: key);
+  const ResponsiveLoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -39,9 +39,10 @@ class ResponsiveLoginScreen extends StatelessWidget {
 
 // Desktop Login Screen
 class DesktopLoginScreen extends StatefulWidget {
-  const DesktopLoginScreen({Key? key}) : super(key: key);
+  const DesktopLoginScreen({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _DesktopLoginScreenState createState() => _DesktopLoginScreenState();
 }
 
@@ -56,7 +57,7 @@ class _DesktopLoginScreenState extends State<DesktopLoginScreen> {
         padding: const EdgeInsets.all(30),
         decoration: BoxDecoration(
           color: Colors.grey[100],
-          borderRadius: BorderRadius.circular(8), 
+          borderRadius: BorderRadius.circular(8),
           boxShadow: [
             BoxShadow(
               color: Colors.grey.withOpacity(0.3),
@@ -69,7 +70,7 @@ class _DesktopLoginScreenState extends State<DesktopLoginScreen> {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Image.asset('./assets/images/logo_parkvision.png', height: 60), // Add logo image
+            Image.asset('./assets/images/logo_parkvision.png', height: 60),
             const SizedBox(height: 25),
             const TextField(
               decoration: InputDecoration(
@@ -109,7 +110,7 @@ class _DesktopLoginScreenState extends State<DesktopLoginScreen> {
             TextField(
               obscureText: _obscureText,
               decoration: const InputDecoration(
-                hintText: 'Confirm Password', // Ini adalah kolom konfirmasi password
+                hintText: 'Confirm Password',
                 prefixIcon: Icon(Icons.lock),
                 filled: true,
                 fillColor: Colors.white,
@@ -122,13 +123,16 @@ class _DesktopLoginScreenState extends State<DesktopLoginScreen> {
             ElevatedButton(
               onPressed: () {},
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color.fromARGB(255, 221, 218, 218),
+                backgroundColor: Colors.red,
                 minimumSize: const Size(double.infinity, 50),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(15),
                 ),
               ),
-              child: const Text('Daftar'),
+              child: const Text(
+                'Daftar',
+                style: TextStyle(color: Colors.black),
+              ),
             ),
           ],
         ),
@@ -137,11 +141,12 @@ class _DesktopLoginScreenState extends State<DesktopLoginScreen> {
   }
 }
 
-// Mobile Login Screen
+// Mobile Register Screen
 class MobileLoginScreen extends StatefulWidget {
-  const MobileLoginScreen({Key? key}) : super(key: key);
+  const MobileLoginScreen({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _MobileLoginScreenState createState() => _MobileLoginScreenState();
 }
 
@@ -155,15 +160,18 @@ class _MobileLoginScreenState extends State<MobileLoginScreen> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset('./assets/images/logo_parkvision.png', height: 100), // Add logo image
+          Image.asset('./assets/images/logo_parkvision.png', height: 100),
           const SizedBox(height: 40),
           const Text(
             'Register Your Account',
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+            ),
           ),
           const SizedBox(height: 25),
-          TextField(
-            decoration: const InputDecoration(
+          const TextField(
+            decoration: InputDecoration(
               hintText: 'Username',
               prefixIcon: Icon(Icons.person),
               filled: true,
@@ -200,7 +208,7 @@ class _MobileLoginScreenState extends State<MobileLoginScreen> {
           TextField(
             obscureText: _obscureText,
             decoration: const InputDecoration(
-              hintText: 'Confirm Password', // Ini adalah kolom konfirmasi password
+              hintText: 'Confirm Password',
               prefixIcon: Icon(Icons.lock),
               filled: true,
               fillColor: Colors.white,
@@ -213,16 +221,20 @@ class _MobileLoginScreenState extends State<MobileLoginScreen> {
           ElevatedButton(
             onPressed: () {},
             style: ElevatedButton.styleFrom(
-              backgroundColor: const Color.fromARGB(255, 221, 218, 218),
+              backgroundColor: Colors.red,
               minimumSize: const Size(double.infinity, 50),
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(30),
+                borderRadius: BorderRadius.circular(15),
               ),
             ),
-            child: const Text('Register'),
+            child: const Text(
+              'Daftar',
+              style: TextStyle(color: Colors.black),
+            ),
           ),
         ],
       ),
     );
   }
 }
+

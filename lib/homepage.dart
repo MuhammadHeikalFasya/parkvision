@@ -36,7 +36,7 @@ class LandingPage extends StatelessWidget {
                   './assets/images/logo_parkvision.png',
                   height: 50, // Sesuaikan ukuran logo
                 ),
-                SizedBox(width: 8),
+                const SizedBox(width: 8),
               ],
             ),
             actions: [
@@ -52,7 +52,7 @@ class LandingPage extends StatelessWidget {
                         ),
                       );
                     },
-                    child: Text(
+                    child: const Text(
                       'LOGIN',
                       style: TextStyle(
                         color: Colors.black,
@@ -68,9 +68,9 @@ class LandingPage extends StatelessWidget {
           body: LayoutBuilder(
             builder: (context, constraints) {
               if (constraints.maxWidth > 600) {
-                return DesktopLayout();
+                return const DesktopLayout();
               } else {
-                return MobileLayout();
+                return const MobileLayout();
               }
             },
           ),
@@ -81,6 +81,8 @@ class LandingPage extends StatelessWidget {
 }
 
 class DesktopLayout extends StatelessWidget {
+  const DesktopLayout({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -97,7 +99,7 @@ class DesktopLayout extends StatelessWidget {
                   height: 300,
                   decoration: BoxDecoration(
                     color: Colors.grey[300],
-                    image: DecorationImage(
+                    image: const DecorationImage(
                       image: AssetImage(
                           './assets/images/parkir.jpg'), // Path gambar
                       fit: BoxFit.cover, // Sesuaikan tampilan gambar
@@ -105,15 +107,15 @@ class DesktopLayout extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(width: 16),
-              Expanded(
+              const SizedBox(width: 16),
+              const Expanded(
                 flex: 1,
                 child: StatusSlot(),
               ),
             ],
           ),
-          SizedBox(height: 16),
-          ParkingSlots(),
+          const SizedBox(height: 16),
+          const ParkingSlots(),
         ],
       ),
     );
@@ -121,6 +123,8 @@ class DesktopLayout extends StatelessWidget {
 }
 
 class MobileLayout extends StatelessWidget {
+  const MobileLayout({super.key});
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -132,16 +136,16 @@ class MobileLayout extends StatelessWidget {
             height: 200,
             decoration: BoxDecoration(
               color: Colors.grey[300],
-              image: DecorationImage(
+              image: const DecorationImage(
                 image: AssetImage('./assets/images/parkir.jpg'), // Path gambar
                 fit: BoxFit.cover, // Sesuaikan tampilan gambar
               ),
             ),
           ),
-          SizedBox(height: 16),
-          StatusSlot(),
-          SizedBox(height: 16),
-          ParkingSlots(),
+          const SizedBox(height: 16),
+          const StatusSlot(),
+          const SizedBox(height: 16),
+          const ParkingSlots(),
         ],
       ),
     );
@@ -149,6 +153,8 @@ class MobileLayout extends StatelessWidget {
 }
 
 class StatusSlot extends StatelessWidget {
+  const StatusSlot({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -163,7 +169,7 @@ class StatusSlot extends StatelessWidget {
                 color: Colors.grey.withOpacity(0.5),
                 spreadRadius: 2,
                 blurRadius: 4,
-                offset: Offset(0, 3),
+                offset: const Offset(0, 3),
               ),
             ],
           ),
@@ -177,7 +183,7 @@ class StatusSlot extends StatelessWidget {
             ],
           ),
         ),
-        SizedBox(height: 8), // Jarak antara container putih dan merah
+        const SizedBox(height: 8), // Jarak antara container putih dan merah
         Container(
           padding: const EdgeInsets.all(16.0),
           decoration: BoxDecoration(
@@ -188,25 +194,25 @@ class StatusSlot extends StatelessWidget {
                 color: Colors.grey.withOpacity(0.5),
                 spreadRadius: 2,
                 blurRadius: 4,
-                offset: Offset(0, 3),
+                offset: const Offset(0, 3),
               ),
             ],
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
+              const Text(
                 'SLOT STATUS',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 20, // Sesuaikan ukuran font
                 ),
               ),
-              Text(
+              const Text(
                 'Penghitungan kendaraan yang diparkir\nStatus terkini jumlah slot parkir',
                 style: TextStyle(fontSize: 14), // Sesuaikan ukuran font
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
@@ -242,10 +248,10 @@ class StatusSlot extends StatelessWidget {
             color: Colors.white, // Background ikon
           ),
         ),
-        SizedBox(width: 8),
+        const SizedBox(width: 8),
         Text(
           text,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 14, // Sesuaikan ukuran teks
             fontWeight: FontWeight.bold, // Teks tebal
           ),
@@ -274,6 +280,8 @@ class StatusSlot extends StatelessWidget {
 }
 
 class ParkingSlots extends StatelessWidget {
+  const ParkingSlots({super.key});
+
   @override
   Widget build(BuildContext context) {
     // Get the screen width
@@ -282,14 +290,14 @@ class ParkingSlots extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
+        const Text(
           'BLOK A',
           style: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 16, // Adjust font size
           ),
         ),
-        SizedBox(height: 8),
+        const SizedBox(height: 8),
         // Check if the screen width is greater than 600 for desktop layout
         if (screenWidth > 600)
           // Desktop layout: 1 row for BLOK A
@@ -307,7 +315,7 @@ class ParkingSlots extends StatelessWidget {
                 children: List.generate(
                     6, (index) => ParkingSlot(slot: 'A${index + 1}')),
               ),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: List.generate(
@@ -315,15 +323,15 @@ class ParkingSlots extends StatelessWidget {
               ),
             ],
           ),
-        SizedBox(height: 16),
-        Text(
+        const SizedBox(height: 16),
+        const Text(
           'BLOK B',
           style: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 16, // Adjust font size
           ),
         ),
-        SizedBox(height: 8),
+        const SizedBox(height: 8),
         // Check if the screen width is greater than 600 for desktop layout
         if (screenWidth > 600)
           // Desktop layout: 1 row for BLOK B
@@ -341,7 +349,7 @@ class ParkingSlots extends StatelessWidget {
                 children: List.generate(
                     6, (index) => ParkingSlot(slot: 'B${index + 1}')),
               ),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: List.generate(
@@ -358,7 +366,7 @@ class ParkingSlot extends StatelessWidget {
   final String slot;
   final bool isSelected;
 
-  const ParkingSlot({required this.slot, this.isSelected = false});
+  const ParkingSlot({super.key, required this.slot, this.isSelected = false});
 
   @override
   Widget build(BuildContext context) {
@@ -375,7 +383,7 @@ class ParkingSlot extends StatelessWidget {
             color: Colors.grey.withOpacity(0.5),
             spreadRadius: 2,
             blurRadius: 4,
-            offset: Offset(0, 3),
+            offset: const Offset(0, 3),
           ),
         ],
       ),

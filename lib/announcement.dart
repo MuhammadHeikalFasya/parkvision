@@ -59,7 +59,7 @@ class AnnouncementPage extends StatelessWidget {
                 top: Radius.circular(25),
               ),
             ),
-            builder: (context) => AddAnnouncementSheet(),
+            builder: (context) => const AddAnnouncementSheet(),
           );
         },
         backgroundColor: Colors.red,
@@ -147,6 +147,8 @@ class AnnouncementItem extends StatelessWidget {
 }
 
 class AddAnnouncementSheet extends StatelessWidget {
+  const AddAnnouncementSheet({super.key});
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -160,59 +162,63 @@ class AddAnnouncementSheet extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Text(
+          const Text(
             'Tambah Pengumuman',
             style: TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.bold,
             ),
           ),
-SizedBox(height: 16),
-TextField(
-  decoration: InputDecoration(
-    labelText: 'Judul',
-    labelStyle: TextStyle(
-      color: Colors.black, // Warna label
-    ),
-    enabledBorder: OutlineInputBorder(
-      borderSide: BorderSide(color: Colors.black, width: 1.0), // Border saat tidak fokus
-    ),
-    focusedBorder: OutlineInputBorder(
-      borderSide: BorderSide(color: Colors.red, width: 2.0), // Border saat fokus
-    ),
-  ),
-),
-SizedBox(height: 16),
-TextField(
-  decoration: InputDecoration(
-    labelText: 'Deskripsi',
-    labelStyle: TextStyle(
-      color: Colors.black, // Warna label
-    ),
-    enabledBorder: OutlineInputBorder(
-      borderSide: BorderSide(color: Colors.black, width: 1.0), // Border saat tidak fokus
-    ),
-    focusedBorder: OutlineInputBorder(
-      borderSide: BorderSide(color: Colors.red, width: 2.0), // Border saat fokus
-    ),
-  ),
-  maxLines: 3,
-),
-SizedBox(height: 16),
-ElevatedButton(
-  style: ElevatedButton.styleFrom(
-    backgroundColor: Colors.red,
-  ),
-  onPressed: () {
-    Navigator.pop(context);
-  },
-  child: Text(
-    'Simpan Pengumuman',
-    style: TextStyle(color: Colors.black), // Mengubah warna teks menjadi hitam
-  ),
-),
-
-          SizedBox(height: 16),
+          const SizedBox(height: 16),
+          const TextField(
+            decoration: InputDecoration(
+              labelText: 'Judul',
+              labelStyle: TextStyle(
+                color: Colors.black, // Warna label
+              ),
+              enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                    color: Colors.black, width: 1.0), // Border saat tidak fokus
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                    color: Colors.red, width: 2.0), // Border saat fokus
+              ),
+            ),
+          ),
+          const SizedBox(height: 16),
+          const TextField(
+            decoration: InputDecoration(
+              labelText: 'Deskripsi',
+              labelStyle: TextStyle(
+                color: Colors.black, // Warna label
+              ),
+              enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                    color: Colors.black, width: 1.0), // Border saat tidak fokus
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                    color: Colors.red, width: 2.0), // Border saat fokus
+              ),
+            ),
+            maxLines: 3,
+          ),
+          const SizedBox(height: 16),
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.red,
+            ),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            child: const Text(
+              'Simpan Pengumuman',
+              style: TextStyle(
+                  color: Colors.black), // Mengubah warna teks menjadi hitam
+            ),
+          ),
+          const SizedBox(height: 16),
         ],
       ),
     );

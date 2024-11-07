@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:parkvision/homepage.dart';
 
 class Splashpage extends StatelessWidget {
+  const Splashpage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: SplashScreen(),
+      home: const SplashScreen(),
       routes: {
         '/home': (context) => const ParkVisionApp(),
       },
@@ -15,7 +17,10 @@ class Splashpage extends StatelessWidget {
 }
 
 class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _SplashScreenState createState() => _SplashScreenState();
 }
 
@@ -31,7 +36,7 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
     
     // Animasi untuk logo dengan zoom-in effect
     _logoController = AnimationController(
-      duration: Duration(seconds: 1),
+      duration: const Duration(seconds: 1),
       vsync: this,
     )..addListener(() {
         setState(() {
@@ -41,7 +46,7 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
 
     // Animasi untuk teks dengan fade-in effect
     _textController = AnimationController(
-      duration: Duration(seconds: 1),
+      duration: const Duration(seconds: 1),
       vsync: this,
     )..addListener(() {
         setState(() {
@@ -55,7 +60,8 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
     });
 
     // Menavigasi ke halaman berikutnya setelah beberapa detik
-    Future.delayed(Duration(seconds: 3), () {
+    Future.delayed(const Duration(seconds: 3), () {
+      // ignore: use_build_context_synchronously
       Navigator.pushReplacementNamed(context, '/home');
     });
   }
@@ -75,15 +81,15 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             AnimatedContainer(
-              duration: Duration(seconds: 1),
+              duration: const Duration(seconds: 1),
               curve: Curves.easeOut,
               width: _logoSize,
               height: _logoSize,
               child: Image.asset('./assets/images/icon_parkvision.png'), // Logo menggunakan image asset
             ),
-            SizedBox(height: 16.0),
+            const SizedBox(height: 16.0),
             AnimatedOpacity(
-              duration: Duration(seconds: 1),
+              duration: const Duration(seconds: 1),
               opacity: _textOpacity,
               child: Image.asset(
                 './assets/images/teks_parkvision.png', // Teks menggunakan image asset
