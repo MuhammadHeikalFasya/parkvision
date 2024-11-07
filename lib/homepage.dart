@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:parkvision/login.dart';
+import 'package:parkvision/navbar.dart';
 
 class ParkVisionApp extends StatelessWidget {
   const ParkVisionApp({super.key});
@@ -11,21 +13,23 @@ class ParkVisionApp extends StatelessWidget {
         primaryColor: Colors.grey[800],
         fontFamily: 'Arial',
       ),
-      home: LandingPage(),
+      home: const NavigationRailPage(), // Menggunakan halaman navigasi utama
     );
   }
 }
 
 class LandingPage extends StatelessWidget {
+  const LandingPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: const Color.fromARGB(255, 236, 233, 233), 
+        color: const Color.fromARGB(255, 236, 233, 233),
         child: Scaffold(
           backgroundColor: Colors.transparent, // Agar tidak menimpa gradien
           appBar: AppBar(
-            backgroundColor: Colors.white,  
+            backgroundColor: Colors.white,
             title: Row(
               children: [
                 Image.asset(
@@ -39,12 +43,22 @@ class LandingPage extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(right: 16.0),
                 child: Center(
-                  child: Text(
-                    'LOGIN',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16, // Sesuaikan ukuran teks
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const ResponsiveLoginScreen(),
+                        ),
+                      );
+                    },
+                    child: Text(
+                      'LOGIN',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16, // Sesuaikan ukuran teks
+                      ),
                     ),
                   ),
                 ),
@@ -65,7 +79,6 @@ class LandingPage extends StatelessWidget {
     );
   }
 }
-
 
 class DesktopLayout extends StatelessWidget {
   @override

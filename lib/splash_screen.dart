@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:parkvision/navbar.dart';
+import 'package:parkvision/homepage.dart';
 
 class Splashpage extends StatelessWidget {
   @override
@@ -8,7 +8,7 @@ class Splashpage extends StatelessWidget {
     return MaterialApp(
       home: SplashScreen(),
       routes: {
-        '/home': (context) => NavigationRailPage(),
+        '/home': (context) => const ParkVisionApp(),
       },
     );
   }

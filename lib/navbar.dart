@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:parkvision/announcement.dart';
+import 'package:parkvision/homepage.dart';
 import 'package:parkvision/violation.dart';
-import 'homepage.dart'; // Import the HomePage widget
 
 class MyApp extends StatelessWidget {
   @override
@@ -38,7 +38,6 @@ const _navBarItems = [
   ),
 ];
 
-
 class _NavigationRailPageState extends State<NavigationRailPage>
     with TickerProviderStateMixin {
   int _selectedIndex = 0;
@@ -70,13 +69,13 @@ class _NavigationRailPageState extends State<NavigationRailPage>
   Widget _getPage() {
     switch (_selectedIndex) {
       case 0:
-        return const ParkVisionApp(); // Use the imported HomePage
+        return const LandingPage(); // Menggunakan LandingPage
       case 1:
         return const AnnouncementPage();
       case 2:
         return const ViolationPage();
       default:
-        return const ParkVisionApp();
+        return const LandingPage();
     }
   }
 
@@ -141,8 +140,10 @@ class _NavigationRailPageState extends State<NavigationRailPage>
                   ),
                   label: Text(
                     item.label!,
-                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold,
-                    color: isSelected ? Colors.black : Colors.white,
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                      color: isSelected ? Colors.black : Colors.white,
                     ), // Menambahkan font tebal
                   ),
                 );
